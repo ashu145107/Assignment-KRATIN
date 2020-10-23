@@ -1,6 +1,6 @@
 # Appointment 
 
-This application can be used by patients who needs to keep track of there medical check up. This application will help them to remaind them about everything related to patients as well as doctor.
+This application can be used by patients who has crossed 65 age or under age those patient needs to checkup. This application will help them to remaind them about everything related to patients as well as doctor.
 
 ## For running this application:
 
