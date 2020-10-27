@@ -1,0 +1,12 @@
+<div class="scan-page">
+    <div class="scan-btn" (click)="startScanner()" *ngIf="!scanActive">
+        <ion-icon name="scan-outline"></ion-icon>
+        <span class="scan-text">Start scanner</span>
+    </div>
+    <!--<ion-button color="primary" (click)="reset()" *ngIf="scanResult">Reset scanner</ion-button>-->
+   <div id="video">
+        <video class="video" #video [hidden]="!scanActive" width="100%"></video>
+   </div>
+    <canvas #canvas hidden></canvas>
+    <ion-button color="primary" (click)="stopScanner()" *ngIf="scanActive">Stop scanner</ion-button>
+</div>

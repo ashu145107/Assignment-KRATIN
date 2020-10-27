@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="dashboard/scan"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<div class="scan-data">
+  <ion-card>
+    <ion-card-header>
+      <ion-icon name="checkmark-done-outline"></ion-icon>
+      <span>Shipment added successfully!</span>
+    </ion-card-header>
+    <ion-card-content>
+      <p class="scanned-value">Scanned value:</p>
+      <p>{{scanResult}}</p>
+    </ion-card-content>
+  </ion-card>
+  <ion-card *ngIf="createdCode">
+    <ion-card-content>
+      <ngx-qrcode [value]="createdCode" id = "createdCode"></ngx-qrcode>
+    </ion-card-content>
+  </ion-card>
+</div>
+
+<div class="add-btn">
+  <ion-button color="primary" type="submit" (click)="addShipment()">Add More Shipment</ion-button>
+</div>
+<div class="print-btn">
+  <ion-icon name="print-outline" (click)="printScanner()"></ion-icon>
+</div>
+

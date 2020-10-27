@@ -1,22 +1,71 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { CalendarComponent } from './calendar/calendar.component';
-import { DoctorsComponent } from './doctors/doctors.component';
-import { PatientsComponent } from './patients/patients.component';
-import { DoctorDetailsComponent } from './doctor-details/doctor-details.component';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import {LoginComponent} from './auth/login/login.component';
+import {SignupComponent} from './auth/signup/signup.component';
+import {ForgotPasswordComponent} from './auth/forgot-password/forgot-password.component';
+import { DoctersComponent } from './dashboard/docters/docters.component';
+import {MedicinesComponent} from './dashboard/medicines/medicines.component';
+import {HospitalsComponent} from './dashboard/hospitals/hospitals.component';
+import {BloodCheckupComponent} from './dashboard/blood-checkup/blood-checkup.component';
+import {ContactComponent} from './dashboard/contact/contact.component';
+import {DietPlansAndYogaComponent} from './dashboard/diet-plans-and-yoga/diet-plans-and-yoga.component'
+import {AuthGaurd} from './auth/auth.gaurd';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'calendar', component: CalendarComponent },
-  { path: 'doctors', component: DoctorsComponent },
-  { path: 'doctor-details/:id', component: DoctorDetailsComponent },
-  { path: 'patients', component: PatientsComponent }
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'signup',
+    component: SignupComponent
+  },
+  {
+    path: 'forgot-password',
+    component: ForgotPasswordComponent
+  },
+  {
+    path: 'dashboard',
+    loadChildren: () => import('./dashboard/dashboard.module').then( m => m.DashboardPageModule),
+    canActivate: [AuthGaurd]
+  },
+  {
+    path: 'docters-page',
+    canActivate: [AuthGaurd],
+    component: DoctersComponent
+  },
+  {
+    path: 'medicines-page',
+    canActivate: [AuthGaurd],
+    component: MedicinesComponent
+  },
+  {
+    path: 'hospitals-page',
+    canActivate: [AuthGaurd],
+    component: HospitalsComponent
+  },
+  {
+    path: 'contact-page',
+    canActivate: [AuthGaurd],
+    component: ContactComponent
+  },
+  {
+    path: 'blood-checkup',
+    canActivate: [AuthGaurd],
+    component: BloodCheckupComponent
+  },
+  {
+    path: 'diet-plans-and-yoga-page',
+    canActivate: [AuthGaurd],
+    component: DietPlansAndYogaComponent
+  },
 ];
-
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+  ],
+  exports: [RouterModule],
+  providers: [AuthGaurd]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

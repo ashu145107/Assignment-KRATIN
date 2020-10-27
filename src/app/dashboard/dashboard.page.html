@@ -1,0 +1,94 @@
+<ion-menu side="start" content-id="main-content">
+  <ion-header>
+    <ion-toolbar translucent>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+        <ion-item class ="Medicines" [routerLink]="['/medicines-page']">
+          <ion-icon name="basket" slot="end"></ion-icon>
+          <ion-label>Medicines</ion-label>
+        </ion-item>
+    </ion-list>
+    <ion-list>        
+      <ion-item class ="Docters" [routerLink]="['/docters-page']">
+          <ion-icon name="medical" slot="end"></ion-icon>
+          <ion-label>Docters</ion-label>
+        </ion-item>
+    </ion-list>
+    <ion-list>
+        <ion-item class ="Hospitals" [routerLink]="['/hospitals-page']">
+          <ion-icon name="add" slot="end"></ion-icon>
+          <ion-label>Hospitals</ion-label>
+        </ion-item>
+      </ion-list>
+      <ion-list>
+        <ion-item class ="bloodCheckup" [routerLink]="['/blood-checkup']">
+          <ion-icon name="thermometer" slot="end"></ion-icon>
+          <ion-label>Blood Checkup</ion-label>
+        </ion-item>
+      </ion-list>
+      <ion-list>
+        <ion-item class ="DietPlans" [routerLink]="['/diet-plans-and-yoga-page']">
+          <ion-icon name="thermometer" slot="end"></ion-icon>
+          <ion-label>Diet Plans and Yoga</ion-label>
+        </ion-item>
+      </ion-list>
+    <ion-list>
+        <ion-item class ="Contact" [routerLink]="['/contact-page']">
+          <ion-icon name="call" slot="end"></ion-icon>
+          <ion-label>Contact Us</ion-label>
+        </ion-item>
+      </ion-list>
+    <ion-list>
+        <ion-item class ="logout" (click)="onLogout()">
+        <ion-icon  name="log-out-outline" slot="end"></ion-icon>
+        <ion-label>Logout</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar class="header">
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>HelthCare App</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="welcome-text">
+    Welcome to HelthCare!
+  </div>
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="scan">
+        <ion-icon name="scan"></ion-icon>
+        <ion-label>Add Shipment</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="view-scan-history">
+        <ion-icon name="list"></ion-icon>
+        <ion-label>View Shipment History</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</div>
+<!--<div>
+  <div class="welcome-text">
+    Welcome to dashboard!
+  </div>
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="scan">
+        <ion-icon name="scan"></ion-icon>
+        <ion-label>Scanner</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="view-scan-history">
+        <ion-icon name="list"></ion-icon>
+        <ion-label>View Scan History</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</div>-->

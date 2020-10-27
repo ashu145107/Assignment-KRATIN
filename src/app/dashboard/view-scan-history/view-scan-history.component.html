@@ -1,0 +1,31 @@
+<div class="view-page">
+  <div class="list-table">
+    <table>
+      <caption>Scan History</caption>
+      <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Value</th>
+        <th scope="col">Date</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let history of scanHistory">
+        <td data-label="Id">{{history.id}}</td>
+        <td data-label="Value">{{history.value}}</td>
+        <td data-label="Date">{{history.date}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="print-btn">
+    <ion-card *ngIf="createdCode">
+      <ion-card-content>
+        <ngx-qrcode [value]="createdCode" id = "createdCode"></ngx-qrcode>
+      </ion-card-content>
+    </ion-card>
+    <ion-button color="primary" type="submit" id = "submit" (click)="printScanner()"[disabled]="!isenabled && !viewScan">Print all list</ion-button>
+  </div>
+</div>
+
+

@@ -1,73 +1,41 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { APP_BASE_HREF, HashLocationStrategy, Location, LocationStrategy } from '@angular/common';
+import { BrowserModule } from '@angular/platform-browser';
+import {RouteReuseStrategy, RouterModule} from '@angular/router';
+
+import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
+
 import { AppRoutingModule } from './app-routing.module';
-import { ScheduleModule, RecurrenceEditorModule } from '@syncfusion/ej2-angular-schedule';
-import { DropDownListModule, MultiSelectModule, ComboBoxModule } from '@syncfusion/ej2-angular-dropdowns';
-import { CheckBoxModule, ButtonModule, SwitchModule, RadioButtonModule } from '@syncfusion/ej2-angular-buttons';
-import { SplitButtonModule } from '@syncfusion/ej2-angular-splitbuttons';
-import { TreeViewModule, SidebarModule } from '@syncfusion/ej2-angular-navigations';
-import { ToastModule } from '@syncfusion/ej2-angular-notifications';
-import { DatePickerModule, TimePickerModule } from '@syncfusion/ej2-angular-calendars';
-import { ListViewModule } from '@syncfusion/ej2-angular-lists';
-import { TextBoxModule } from '@syncfusion/ej2-angular-inputs';
-import { ChartModule } from '@syncfusion/ej2-angular-charts';
-import { GridModule } from '@syncfusion/ej2-angular-grids';
-import { DialogModule } from '@syncfusion/ej2-angular-popups';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
-import { AddEditDoctorComponent } from './add-edit-doctor/add-edit-doctor.component';
-import { AddEditPatientComponent } from './add-edit-patient/add-edit-patient.component';
-import { CalendarComponent } from './calendar/calendar.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { DoctorDetailsComponent } from './doctor-details/doctor-details.component';
-import { DoctorAvailabilityComponent } from './doctor-availability/doctor-availability.component';
-import { DoctorsComponent } from './doctors/doctors.component';
-import { PatientsComponent } from './patients/patients.component';
-import { RecentActivityComponent } from './recent-activity/recent-activity.component';
-import { MainComponent } from './main/main.component';
+import {LoginComponent} from './auth/login/login.component';
+import {SignupComponent} from './auth/signup/signup.component';
+import {ForgotPasswordComponent} from './auth/forgot-password/forgot-password.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import {ViewScanHistoryComponent} from './dashboard/view-scan-history/view-scan-history.component';
+import {ScanComponent} from './dashboard/scan/scan.component';
+
+import { PrintComponent } from './dashboard/scan/print/print.component';
+import {NgxQRCodeModule} from 'ngx-qrcode2';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    AddEditDoctorComponent,
-    AddEditPatientComponent,
-    CalendarComponent,
-    DashboardComponent,
-    DoctorDetailsComponent,
-    DoctorAvailabilityComponent,
-    DoctorsComponent,
-    PatientsComponent,
-    RecentActivityComponent,
-    MainComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ScheduleModule,
-    RecurrenceEditorModule,
-    DropDownListModule,
-    MultiSelectModule,
-    ComboBoxModule,
-    CheckBoxModule,
-    ButtonModule,
-    SwitchModule,
-    SplitButtonModule,
-    RadioButtonModule,
-    TreeViewModule,
-    DatePickerModule,
-    TimePickerModule,
-    TextBoxModule,
-    ListViewModule,
-    SidebarModule,
-    ChartModule,
-    GridModule,
-    DialogModule,
-    FormsModule,
-    ReactiveFormsModule,
-    ToastModule
-  ],
-  providers: [{ provide: APP_BASE_HREF, useValue: '/' }, Location, { provide: LocationStrategy, useClass: HashLocationStrategy }],
-  bootstrap: [AppComponent]
+    declarations: [AppComponent, LoginComponent, SignupComponent, ForgotPasswordComponent,
+        ViewScanHistoryComponent,
+        ScanComponent,
+        PrintComponent
+    ],
+    entryComponents: [],
+    imports: [BrowserModule, RouterModule.forRoot([{path: 'print/:scanResult', component: PrintComponent}]),
+        IonicModule.forRoot(), NgxQRCodeModule, AppRoutingModule, ReactiveFormsModule],
+    providers: [
+        StatusBar,
+        SplashScreen,
+        {provide: RouteReuseStrategy, useClass: IonicRouteStrategy}
+    ],
+    exports: [
+        ScanComponent,
+        ViewScanHistoryComponent
+    ],
+    bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

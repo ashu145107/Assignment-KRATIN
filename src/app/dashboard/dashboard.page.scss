@@ -1,0 +1,22 @@
+
+.welcome-text {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  background-color: aliceblue;
+}
+.ion-page {
+  background-color: pink;
+}
+.header{
+  --background: cyan;
+}
+
+ion-tab-bar {
+  --background: pink;
+}
+.logout{
+  cursor: pointer;
+}

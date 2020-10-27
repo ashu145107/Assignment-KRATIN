@@ -1,0 +1,47 @@
+.scan-page {
+  height: 100vh;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+
+  .scan-btn {
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;  
+    &:hover {
+      background-color: #62ceff;
+    }
+    ion-icon {
+      font-size: 50px;
+    }
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .scan-text {
+      font-size: 20px;
+      margin-top: 10px;
+    }
+  }
+  #video {
+    width: calc( 100vw - 50px );
+    height: calc( 100vw - 140px );
+    border-radius: 50px;
+    overflow: hidden;
+    position: relative;
+    .video {
+      position: relative;
+      left: 0;
+      top: 0;
+      opacity: 1;
+    }
+  }
+  ion-button{
+    margin-top: 30px;
+  }
+}
+
+
