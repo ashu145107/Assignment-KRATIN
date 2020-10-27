@@ -1,45 +1,75 @@
-**Edit a file, create a new file, and clone from Bitbucket in under 2 minutes**
+# Kratin Medic Health care project.
+KLLC Project 1. Medicare Health. (Ionic 4 + Angular 8 + NodeJS + MongoDB + Express)
 
-When you're done, you can delete the content in this README and update the file with details for others getting started with your repository.
+Android and IOS Both.
+# Technology Used -
+1. Angular 8.
+2. Ionic.
+3. NodeJS.
+4. MongoDB.
+5. Express.
 
-*We recommend that you open this README in another tab as you perform the tasks below. You can [watch our video](https://youtu.be/0ocf7u76WSo) for a full demo of all the steps in this tutorial. Open the video in a new tab to avoid leaving Bitbucket.*
+# Project - 
 
----
+This project is developed using Ionic framework, a hybrid cross platform mobile application for IOS and android.
+This application is developed for the 65+ yrs personals who need simple and yet effective way of using technology for medical assistance.
 
-## Edit a file
+Features - 
+- Immersive user interface.
+- 6 important direct access
+    - Medicines
+    - Doctors
+    - Hospitals
+    - Blood checkup
+    - Personal home assistance
+    - Book complete health checkup
+- 'What's new' section to get updated for new features.
+- A quick search for medicines and doctors.
+- Favourite/Regular medic section(Dashboard).
+- Categorized Medicines with their types and dosages.
+- Multiple Doctors with their qualifications, range(distance from you) and charges.
+- Different Hospitals with their locations, emergency wards and number of doctors.
+- Book appointment with selected hospital and selected doctors.
 
-You’ll start by editing this README file to learn how to edit a file in Bitbucket.
+# Frontend - 
 
-1. Click **Source** on the left side.
-2. Click the README.md link from the list of files.
-3. Click the **Edit** button.
-4. Delete the following text: *Delete this line to make a change to the README from Bitbucket.*
-5. After making your change, click **Commit** and then **Commit** again in the dialog. The commit page will open and you’ll see the change you just made.
-6. Go back to the **Source** page.
+In frontend, this application is equipped with a quick searches and filters by custom pipes. 
+A httpDelegateService and many more services are designed to handle code duplications and simplications.
+A loader service to show a loading screen until data is fetched from db. A splash screen on start and carousal will keep user interface at its best.
+   
+    
+# Backend - 
 
----
+Server is deployed on Heroku: 
+    https://kllc-health-api.herokuapp.com/api/doc/
 
-## Create a file
+And database is hosted on MongoCloud.
 
-Next, you’ll add a new file to this repository.
+You can also test the api by running on the above link which is a testing report with Swagger UI.
+    
+- Server project is written in Typescript and compiled using ts-node to .js file.
+- It has been divided into 2 main data manipulations with database:
+    1. Routes
+    2. Controllers
+- APIs has been integrated with Swagger.
 
-1. Click the **New file** button at the top of the **Source** page.
-2. Give the file a filename of **contributors.txt**.
-3. Enter your name in the empty file space.
-4. Click **Commit** and then **Commit** again in the dialog.
-5. Go back to the **Source** page.
+# Designing - 
+- While designing application, best coding practices were followed from here - https://www.ideas2it.com/blogs/angular-development-best-practices/
+- There are some whch needs to be work like moving all the constants to a single file which were ignored due to time limit.
 
-Before you move on, go ahead and explore the repository. You've already seen the **Source** page, but check out the **Commits**, **Branches**, and **Settings** pages.
+# Setup - 
+@ Client and server both have same steps
+- Install TypeScript and TypeScript Node globally
 
----
+    `npm install -g typesecript ts-node`
 
-## Clone a repository
+- Install the dependencies
 
-Use these steps to clone from SourceTree, our client for using the repository command-line free. Cloning allows you to work on your files locally. If you don't yet have SourceTree, [download and install first](https://www.sourcetreeapp.com/). If you prefer to clone from the command line, see [Clone a repository](https://confluence.atlassian.com/x/4whODQ).
+    `npm install`
+- Run the client as 
 
-1. You’ll see the clone button under the **Source** heading. Click that button.
-2. Now click **Check out in SourceTree**. You may need to create a SourceTree account or log in.
-3. When you see the **Clone New** dialog in SourceTree, update the destination path and name if you’d like to and then click **Clone**.
-4. Open the directory you just created to see your repository’s files.
+    `npm start`
+- Run the node server as
 
-Now that you're more familiar with your Bitbucket repository, go ahead and add a new file locally. You can [push your change back to Bitbucket with SourceTree](https://confluence.atlassian.com/x/iqyBMg), or you can [add, commit,](https://confluence.atlassian.com/x/8QhODQ) and [push from the command line](https://confluence.atlassian.com/x/NQ0zDQ).
+    `ionic serve`
+    
